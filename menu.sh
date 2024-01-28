@@ -7,9 +7,24 @@ SEGUIRMENU=1
 ##FUNCION DE SUMAR NUEMROS
 
 function sumarNumeros(){
-    for((i=2))
+    if [ $# -le 3 ]
+    then
+        echo `expr $1 + $2`
+    else
+        echo No has introducido dos números
+    fi
 }
 
+##FUNCION DE MULTIPLICAR NÚMEROS
+
+function multiplicarNumeros(){
+    if [ $# -le 3 ]
+    then
+        return `expr $1 \* $2`
+    else
+        echo No has introducido dos números
+    fi
+}
 
 ##MENU
 echo `clear`
@@ -20,9 +35,10 @@ do
         1) Busqueda de archivos
         2) Mostrar contenido de un archivo
         3) Mover archivo
-        4) Sumar numeros 
-        5) Multiplicar numeros
-        6) Salir
+        4) Sumar  dos números 
+        5) Multiplicar dos números
+        6) Chuletas UD-01 SI
+        7) Salir
         " OPCION
     
     case $OPCION in
@@ -43,13 +59,24 @@ do
         echo `mv $FILENAME $DESTINY`
         ;;
         4)
-
+        read -p "Introduzca 2 números a sumar 
+            \"Separelos por un espacio\"" SECUENCIA
+        sumarNumeros $SECUENCIA
+        ;;
+        5)
+        read -p "Introduzca 2 números a sumar 
+            \"Separelos por un espacio\"" SECUENCIA
+        multiplicarNumeros $SECUENCIA
+        echo $?
         ;;
         6)
+        xdg-open "https://www.instagram.com/reel/C09H-fFuHRY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" >/dev/null 
+        ;;
+        7)
         SEGUIRMENU=0
         ;;
         *)
         echo "la opcion $OPCION no es valida, intentelo de nuevo"
     esac
 done
-echo "Hasta la próxima"
+echo Hasta la próxima
