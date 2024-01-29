@@ -77,7 +77,7 @@ do
         ;;
         6)
         xdg-open "https://www.instagram.com/reel/C09H-fFuHRY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-        echo "Seguramente esta opcion no haya funcionado ya que requiere de una instalacion de paquetes previa copie y pegue 
+        echo "Copie y pegue 
             https://www.instagram.com/reel/C09H-fFuHRY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         ;;
         7)
