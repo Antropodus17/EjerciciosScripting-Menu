@@ -32,7 +32,7 @@ while (( $SEGUIRMENU ))
 do
     read -p "      Benvido
     Seleccione á opcion:
-        1) Busqueda de archivos
+        1) Listado de archivos
         2) Mostrar contenido de un archivo
         3) Mover archivo
         4) Sumar  dos números 
@@ -43,10 +43,16 @@ do
     
     case $OPCION in
         1)
-        read -p "Introduzca el nombre del archivo ('filename'):" FILENAME
-        read -p "Introduzca la ruta donde buscarlo ('path')" PATH
-        source busqueda.sh
-        busqueda $FILENAME $PATH
+        read -p "Quiere mostra los archivos ocultos YES=1 NO=0 
+        " CONFIRMACION
+        source listado.sh
+        if [ $CONFIRMACION -eq 1 ]
+        then
+            listar SI hola adios
+        else 
+            listar
+        fi
+        
         ;;
         2)
         read -p "Introduzca la ruta del archivo " ARCHIVO
@@ -70,7 +76,9 @@ do
         echo $?
         ;;
         6)
-        xdg-open "https://www.instagram.com/reel/C09H-fFuHRY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" >/dev/null 
+        xdg-open "https://www.instagram.com/reel/C09H-fFuHRY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        echo "Seguramente esta opcion no haya funcionado ya que requiere de una instalacion de paquetes previa copie y pegue 
+            https://www.instagram.com/reel/C09H-fFuHRY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         ;;
         7)
         SEGUIRMENU=0
