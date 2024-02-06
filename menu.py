@@ -63,11 +63,15 @@ while(mostrar_menu):
             elemento_a_eliminar=input("Introduzca la ruta del fichero a eliminar: ")
             try:
                 os.remove(elemento_a_eliminar)
+                print(f"El fichero {elemento_a_eliminar} se ha eliminado con exito")
             except:
                 try:
                     os.rmdir(elemento_a_eliminar)
-                except:
-                    print("No existe el elemento a eliminar")
+                    print(f"El directorio {elemento_a_eliminar} se ha eliminado con exito")
+                except IsADirectoryError:
+                    print("El directorio no esta vacio")
+                except FileNotFoundError:
+                    print("El elemento no existe.")
         case 5:
             print('''           ***IMPORTANTE***
     No se crearan las carpetas padres.
